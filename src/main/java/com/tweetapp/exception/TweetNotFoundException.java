@@ -1,6 +1,6 @@
 package com.tweetapp.exception;
 
-public class TweetNotFoundException extends Exception{
+public class TweetNotFoundException extends RuntimeException{
 
     public TweetNotFoundException(String message){
         super(message);

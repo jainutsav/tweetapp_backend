@@ -6,7 +6,6 @@ import com.tweetapp.security.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -50,13 +49,15 @@ public class SecurityConfig {
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .authorizeRequests((authorize) -> authorize
+                .authorizeRequests(authorize -> authorize
                         .antMatchers("/api/v1.0/tweets/login").permitAll()
                         .antMatchers("/api/v1.0/tweets/register").permitAll()
-                        .antMatchers("/v2/api-docs/**").permitAll()
+                        .antMatchers("/v3/api-docs/**").permitAll()
                         .antMatchers("/swagger-ui/**").permitAll()
                         .antMatchers("/swagger-resources/**").permitAll()
                         .antMatchers("/swagger-ui.html").permitAll()
+                        .antMatchers("/actuator/**").permitAll()
+                        .antMatchers("/api/v1/**").permitAll()
                         .anyRequest()
                         .authenticated()
                 );

@@ -3,6 +3,7 @@ package com.tweetapp.service.api;
 import com.tweetapp.entity.User;
 import com.tweetapp.model.JWTAuthResponse;
 import com.tweetapp.model.LoginDto;
+import com.tweetapp.model.SendUser;
 
 import java.util.List;
 
@@ -14,6 +15,10 @@ public interface UserService {
 
     User findByEmail(String emailId) ;
 
-    List<User> getAllUsers();
+    String resetPassword(User user);
+
+    List<SendUser> getAllUsers();
+
+    List<SendUser> findByUsernameRegex(String username);
 
 }

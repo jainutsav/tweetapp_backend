@@ -4,18 +4,13 @@ import org.springframework.http.HttpStatus;
 
 public class TweetAppException extends RuntimeException {
 
-    private HttpStatus status;
-    private String message;
+    private final HttpStatus status;
+    private final String message;
 
     public TweetAppException(HttpStatus status, String message) {
-        this.status = status;
-        this.message = message;
-    }
-
-    public TweetAppException(String message, HttpStatus status, String message1) {
         super(message);
         this.status = status;
-        this.message = message1;
+        this.message = message;
     }
 
     public HttpStatus getStatus() {

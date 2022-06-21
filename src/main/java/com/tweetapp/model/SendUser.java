@@ -3,11 +3,7 @@ package com.tweetapp.model;
 import lombok.Data;
 
 @Data
-public class TweetReply {
-
-    private String username;
-
+public class SendUser {
     private String firstName;
-
-    private String message;
+    private String username;
 }

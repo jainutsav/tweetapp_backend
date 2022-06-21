@@ -1,11 +1,9 @@
 package com.tweetapp.service.api;
 
 import com.tweetapp.entity.Tweet;
-import com.tweetapp.exception.TweetNotFoundException;
-import org.springframework.data.mongodb.repository.Update;
+import com.tweetapp.model.TweetReply;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface TweetService {
 
@@ -15,9 +13,11 @@ public interface TweetService {
 
     Tweet newTweet(Tweet tweet);
 
-    Optional<Tweet> updateTweet(String id, String message) throws TweetNotFoundException;
+    Tweet updateTweet(String id, String message);
 
-    Long deleteTweet(String id) throws TweetNotFoundException;
+    Long deleteTweet(String id);
 
-    Long likeTweet(String id) throws TweetNotFoundException;
+    Tweet likeTweet(String username, String id);
+
+    Tweet replyTweet(String id, TweetReply tweetReply);
 }
